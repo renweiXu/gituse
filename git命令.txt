@@ -1,0 +1,45 @@
+配置提交作者
+git config --global（global针对全局本地仓库，去掉则针对当前本地仓库起作用） user.name "username" 配置姓名
+git config --global user.email "****@qq.com 配置邮箱地址
+
+禁用换行符自动转换：
+git config --global core.autocrlf false
+
+从零开发，先创建远程仓库，然后克隆远程库：
+git clone 地址 [本地库名]（可选）
+
+查看仓库文件状态
+git status
+暂存文件，建立跟踪
+git add 具体文件名  单个文件提交
+git add .   提交所有文件
+
+提交版本到本地仓库
+git commit -m "说明" 提交版本 添加提交信息 
+ 
+如何把本地版本提交到远程仓库
+git push  origin（远程仓库的名字 默认origin） master(分支 默认master)
+
+解决冲突
+git pull  origin master  拉取远程服务器的版本与本地版本合并
+
+为别人的项目做一些贡献 点击fork 就把别人的代码 加载到自己远程仓库里面了
+
+把本地的全新项目做git版本控制
+先把项目工程转化成本地仓库
+git init  要先进入当前项目的目录
+git remote add origin url(远程仓库的地址)
+git push -u origin master -u表示把远程仓库直接设置为当前本地仓库的上游分支  以后关联到本地仓库的时候 不用输入 origin master
+
+创建一个 .gitignore 文件
+touch .gitignore
+ .gitignore文件的编写规则
+ *.[ac] 忽略以a或者c结尾的文件
+?忽略单个文件 
+[0-9] 
+** 匹配任意层级的目录
+a/**/b  a/b a/c/b a/f/g/b
+bin/表示所有的bin目录都要忽略
+/bin/表示根目录都要忽略
+*.c 忽略c结尾的文件
+!special.c 当前文件可以不被忽略 可以提交
